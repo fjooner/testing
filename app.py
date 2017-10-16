@@ -1,12 +1,7 @@
-# A very simple Flask Hello World app for you to get started with...
-
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
-@app.route('/')
-def main():
-    return render_template('index.html')
-
-if __name__ == "__main__":
-    app.run()
+import json
+import urllib
+url = "http://api.openweathermap.org/data/2.5/forecast?id=3155573&APPID=0aa43b6005881a082d2282b698788d1c"
+response = urllib.urlopen(url)
+data = json.loads(response.read())
+#json_data = response.json()
+print data
